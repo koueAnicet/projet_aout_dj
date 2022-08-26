@@ -1,0 +1,18 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+<div>
+    <h4>
+        {{ message }}
+    </h4>
+</div>
+{% block content %}
+    <form  method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button type="submit">Se connecter</button>
+        </div>
+    </form>
+    <p>Pas encore membre ? <a href="{% url 'register' %}">Inscrivez-vous maintenant !</a></p>
+{% endblock content %}
