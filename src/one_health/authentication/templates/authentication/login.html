@@ -15,4 +15,27 @@
         </div>
     </form>
     <p>Pas encore membre ? <a href="{% url 'register' %}">Inscrivez-vous maintenant !</a></p>
+
+
+
+
+
+
+<form method="post" class="main-form mb-10">
+    {% csrf_token %}
+    <div class="row mt-5 ">
+      
+      <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+        <input type="text" class="form-control" name="username" placeholder="Numéro..">
+      </div>
+      <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+        <input type="password" class="form-control" name="number" placeholder="Numéro..">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Se connecter</button>
+  </form>
+  <p>Pas encore membre ? <a href="{% url 'register' %}">Inscrivez-vous maintenant !</a></p>
 {% endblock content %}
+
+

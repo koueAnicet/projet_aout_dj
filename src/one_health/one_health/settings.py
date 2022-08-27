@@ -142,3 +142,4 @@ LOGIN_REDIRECT_URL = 'home'
 
 #model auth user personalisé
 AUTH_USER_MODEL = 'authentication.User'
+

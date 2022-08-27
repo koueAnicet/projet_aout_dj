@@ -8,7 +8,7 @@ from service import models
 import requests
 import json
 
-URLS = "https://newsapi.org/v2/everything?q=medical&from=2022-07-26&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
+URLS = "https://newsapi.org/v2/everything?q=medical&from=2022-07-27&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
 
 
 class PageHomeView(View):
@@ -28,7 +28,8 @@ class PageHomeView(View):
         data = json.loads(resul.text)
 
         totalResult = data['totalResults']
-        articles= data['articles']
+        articles= data['articles'][:3]
+        
         return render(request, self.template_name, locals())
     
     def post(self, request):
