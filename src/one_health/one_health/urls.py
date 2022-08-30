@@ -33,6 +33,8 @@ urlpatterns = [
     path('doctors/', views.PageDoctorView.as_view(), name="doctors"),
     path('register/', authentication_view.RegisterPageView.as_view(), name="register"),
     path('login/', authentication_view.loginPageView.as_view(), name="login"),
+    path('doct/', authentication_view.register_doctor, name="doct"),
+    path('pat/', authentication_view.register_patient, name="pat"),
     path('logout/', authentication_view.logout_user, name="logout"),
     path('tinymce/', include('tinymce.urls')),
    

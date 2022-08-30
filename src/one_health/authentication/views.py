@@ -60,4 +60,7 @@ class loginPageView(View):
         return render(request, self.template_name, context={"form": form, "message": message})
         
 
-
+def register_patient(request):
+    return render(request, "authentication/patient-register.html")
+def register_doctor(request):
+    return render(request, "authentication/doctor-register.html")

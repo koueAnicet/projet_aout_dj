@@ -252,6 +252,7 @@
       <h1 class="text-center wow fadeInUp">Latest News</h1>
       <div class="row mt-5">
         {% for article in articles %}
+
         <div class="col-lg-4 py-2 wow zoomIn">
           <div class="card-blog">
             <div class="header">
@@ -262,20 +263,22 @@
                 <img src="{{ article.urlToImage }}" alt="">
               </a>
             </div>
-            <div class="body">
+            <div class="body" style="height:180px;">
               <h5 class="post-title">
-                <a href="{% url 'blog_details' %}">
-                  {{ article.title}}
+                <a href="{% url 'blog_details' %}" class="mt-2">
+                  {{ article.title|truncatewords:9 }}
                 </a>
             </h5>
-              <div class="site-info">
+              <div class="site-info mt-1">
                 <div class="avatar mr-2">
                   <div class="avatar-img">
                     <img src="{% static 'one_health/img/person/person_1.jpg' %}" alt="">
                   </div>
+                  {% if article.author is not None %}
                   <span>{{article.author}}</span>
+                  {% endif %}
                 </div>
-                <span class="mai-time"></span> {{ article.publishedAt}}
+                <span class="mai-time"></span> {{ list_result1}} : {{ list_result2 }}
               </div>
             </div>
           </div>
@@ -331,7 +334,7 @@
         </div> {% endcomment %}
 
         <div class="col-12 text-center mt-4 wow zoomIn">
-          <a href="{% url 'blog_details' %}" class="btn btn-primary">Read More</a>
+          <a href="{% url 'blog' %}" class="btn btn-primary">Read More</a>
         </div>
 
       </div>
@@ -361,9 +364,19 @@
               {% endfor %}
             </select>
           </div>
+          {% comment %} Medecin du departement  {% endcomment %}
+          <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+            <select name="departement" id="departement" class="custom-select">
+              
+                <option value=""></option>
+              
+            </select>
+          </div>
+          
           <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
             <input type="text" class="form-control" name="number" placeholder="Numéro..">
           </div>
+
           <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
             <textarea name="message" id="message" class="form-control" rows="6" placeholder="Entrez message.."></textarea>
           </div>

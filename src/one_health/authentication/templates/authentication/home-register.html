@@ -1,0 +1,19 @@
+
+{% extends 'base_auth.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="page-section">
+        <div class="container" >
+            <h1 class="text-center wow fadeInUp">TYPE D'UTILISATEUR</h1>
+        
+            <div class="text-center mt-5" style="height:auto;">
+                <a class="btn btn-primary ml-lg-3" href="{% url 'register' %}"><strong class="">Patient</strong></a>
+                <a class="btn btn-primary ml-lg-3" href="{% url 'register' %}"><strong class="">Docteur</strong></a>
+       
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

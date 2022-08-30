@@ -1,14 +1,15 @@
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from authentication.models import User
 from service.models import Departement
 from web import models as webmodels
 from service import models
-
+from datetime import date
 import requests
 import json
 
-URLS = "https://newsapi.org/v2/everything?q=medical&from=2022-07-27&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
+URLS = "https://newsapi.org/v2/everything?q=medical&from="+str(date.today())+"&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
 
 
 class PageHomeView(View):
@@ -27,8 +28,14 @@ class PageHomeView(View):
         resul = requests.get(URLS)
         data = json.loads(resul.text)
 
-        totalResult = data['totalResults']
         articles= data['articles'][:3]
+        list_result = []
+        for art in articles:
+            list_result1= art['publishedAt'][:10]
+            list_result2= art['publishedAt'][11:18]
+
+        #totalResult = data['totalResults']
+        articles= data['articles'][:6]
         
         return render(request, self.template_name, locals())
     
@@ -116,7 +123,7 @@ class PageContactView(View):
     
     def get(self, request):
         return render(request, self.template_name, locals())
-    
+    @login_required
     def post(self, request):
         name_contact = request.POST.get('name')
         email_contact = request.POST.get('adresse')
@@ -133,4 +140,18 @@ class PageContactView(View):
     
  
 def blog(request):
+    #----------API---------------#
+
+    resul = requests.get(URLS)
+    data = json.loads(resul.text)
+
+    #totalResult = data['totalResults']
+    articles= data['articles'][:10]
+    list_result = []
+    for art in articles:
+        list_result1= art['publishedAt'][:10]
+        list_result2= art['publishedAt'][11:18]
+
     return render(request, "one_health/blog.html", locals())
+def home_register(request):
+    return render(request, "one_health/home-register.html", locals())

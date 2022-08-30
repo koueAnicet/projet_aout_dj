@@ -26,10 +26,7 @@ for art in articles:
         f"la description: {art['description']}\n"
         f"l\'url: {art['url']}\n"
         f"l\'urlToImage: {art['urlToImage']}\n"
-        f"la date publication: {art['publishedAt'].today()}\n"
+        f"la date publication: {art['publishedAt'].isoformat()}\n"
         f"le contenu: {art['content']}\n"
     )
     print( list_result)
-
-
-
