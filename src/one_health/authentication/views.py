@@ -47,8 +47,7 @@ class loginPageView(View):
                 username=form.cleaned_data["username"],
                 password=form.cleaned_data["password"],
             )
-            print("#--------@------#")
-            print(user)
+            
             if user is None:
                 login(request, user)
                 message= f"Bienvenue{user}!"

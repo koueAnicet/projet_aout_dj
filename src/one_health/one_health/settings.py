@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authentication',
     'service',
     'tinymce',#html fields
+    'newsapi',
     
     #'phonenumber_field'
 ]

@@ -2,7 +2,7 @@ from datetime import date
 import requests
 import json
 
-URLS = "https://newsapi.org/v2/everything?q=medical&from=2022-07-30&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
+URLS = "https://newsapi.org/v2/everything?q=oms&from=2022-07-30&sortBy=publishedAt&apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
 API_KEY="apiKey=bd48bd00db6d4feab29c5a6aa5582cd0"
 URL1_SPECIALITY="https://newsapi.org/v2/everything?q="
 URL2_DATA_PUBLISHING="https://newsapi.org/v2/everything?q=medical&from="

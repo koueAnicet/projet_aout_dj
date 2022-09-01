@@ -75,7 +75,7 @@ class Jours(models.Model):
      
 class Consultation(models.Model):
     doctor_cons = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True)
-    tarif = models.CharField(max_length=10)
+    tarif = models.PositiveIntegerField()
     ville = models.ForeignKey(Ville, on_delete=models.SET_NULL, null=True)
     horaires = models.ForeignKey(Horaire, on_delete=models.SET_NULL, null=True)
     jours = models.ForeignKey(Jours, on_delete=models.SET_NULL, null=True)
@@ -91,15 +91,16 @@ class Consultation(models.Model):
 class Appointment(models.Model):
     full_name = models.CharField(max_length=30)
     email_address = models.EmailField(max_length=50)
-    department = models.ForeignKey(Departement, on_delete=models.CASCADE)
+    department = models.ForeignKey(Departement, on_delete=models.SET_NULL, null=True)
     birthday = models.CharField(max_length=10)
     number = models.CharField(max_length=15)
     message = models.TextField()
     active = models.BooleanField(default=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True)
     def __str__(self):
         return self.full_name
         
-class Convention(Appointment, Testimonial, Blog, Doctor):
+class Convention(Appointment, Testimonial, Blog, Doctor,):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     

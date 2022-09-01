@@ -80,7 +80,9 @@
               <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="{% url 'about' %}">About Us</a>
             </li>
             <li class="nav-item">
+              {% if user.is_authenticated %}
               <a class="nav-link {% if request.path == '/doctors/' %} active {% endif %}" href="{% url 'doctors' %}">Doctors</a>
+              {% endif %}
             </li>
             <li class="nav-item">
               <a class="nav-link {% if request.path == '/blog/' %} active {% endif %}" href="{% url 'blog' %}">News</a>
@@ -92,9 +94,10 @@
              
               {% if user.is_authenticated %}
               <a class="btn btn-primary ml-lg-3" href="{% url 'logout' %}"><strong class=""> Déconnecter</strong></a>
+              <a class="btn btn-primary ml-lg-3" href="{% url 'register' %}"><strong class=""> Register</strong></a>
               {% else %}
                 <a class="btn btn-primary ml-lg-3" href="{% url 'login' %}"><strong class="">Login</strong></a>
-                <a class="btn btn-primary ml-lg-3" href="{% url 'register' %}"><strong class=""> Register</strong></a>
+                
               {% endif %}
               
             </li>
