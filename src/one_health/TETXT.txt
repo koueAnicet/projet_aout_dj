@@ -1,0 +1,86 @@
+#--------VENDEUR--------#
+chercher un vender
+ajouter un colis
+supprimer un colis
+editer un colis
+
+#--------LIVRAIRE--------#
+accepter une livraison
+refuser une livraison
+
+
+@----------models--------@
+#App:
+
+*Service
+-blog
+label
+image
+title
+description
+date
+tags/category
+
+-Doctors
+
+photo
+last name/first name
+service name
+fk(
+    social link(to contact):
+    icon
+    link
+)
+
+-Appointment
+full name
+email address 
+birthday
+doctor
+number
+message
+
+-Testimonial/comments
+name
+email
+website
+message
+
+
+
+
+*Customers
+-Doctors
+-User
+last name
+first name
+address
+email
+password
+phone
+confirm password
+
+
+*Web
+-SocialNetwork
+name
+icon
+link
+
+-SiteInfos
+name
+copyrigth
+email
+phone
+address
+
+-about
+title
+description
+image
+
+-contact
+ name
+ email
+ subject
+ message

@@ -1,0 +1,61 @@
+{% extends 'base_auth.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<div class="mt-100 mb-100" style="height:auto;">
+    <div class="page-section">
+        <div class="container">
+          <h1 class="text-center wow fadeInUp">ENREGISTEMENT PATIENT</h1>
+    
+    <form method="post" class="main-form">
+        {% csrf_token %}
+        <div class="row mt-5">
+           
+            <div class="col-sm-6 py-2 wow fadeInRight">
+                <label for="lastName">Last Name</label>
+                {% render_field form.last_name class="form-control" placeholder="Last name..." data-error="Last name." %}
+                <input  name="lastname" type="text" id="emailAddress" class="form-control" placeholder="Last name...">
+            </div>
+            <div class="col-sm-6 py-2 wow fadeInRight">
+                <label for="lastName">Choisisse</label>
+                {% render_field form.is_patient class="form-control" placeholder="Username" data-error="Username." %}
+            </div>
+            <div class="col-sm-6 py-2 wow fadeInRight">
+                <label for="firstName">First Name</label>
+                {% render_field form.first_name class="form-control" placeholder="First name..." data-error="First name." %}
+                <input  name="firstname" type="text" id="emailAddress" class="form-control" placeholder="First name...">
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                <label for="emailAddress">Email</label>
+                <input type="email" class="form-control" name="adresse" placeholder="Password...">
+            </div>
+            <div class="col-sm-6 py-2 wow fadeInRight">
+                <label for="userName">Username</label>
+                <input  name="username" type="text" id="emailAddress" class="form-control" placeholder="Username...">
+            </div>
+            <div class="col-sm-6 py-2 wow fadeInRight">
+                <label for="number">Number</label>
+                <input  name="number" type="text" id="emailAddress" class="form-control" placeholder="Number...">
+            </div>
+           
+            
+           
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password...">
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm password...">
+            </div>
+          
+        </div>
+    
+        <button type="submit" class="btn btn-primary mt-3  wow zoomIn">S'inscrire</button>
+      </form>
+    </div> 
+    </div> 
+</div> 
+{% endblock content %}

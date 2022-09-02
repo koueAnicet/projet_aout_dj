@@ -1,0 +1,65 @@
+{% extends 'base_auth.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+<div>
+    <h4>
+        {{ message }}
+    </h4>
+</div>
+{% block content %}
+<div class="page-section">
+  <div class="container">
+    <h1 class="text-center wow fadeInUp">CONNECTION</h1>
+      <form  method="post" class="main-form mb-10">
+          {% csrf_token %}
+          <div class="row mt-5 ">
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                <label for="emailAddress">Username</label>
+                {% render_field form.username class="form-control btn-block wow zoomIn" placeholder="Username" data-error="Username." %}
+            </div>
+            <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                <label for="emailAddress">Password</label>
+                {% render_field form.password class="form-control" placeholder="Password" required="required" data-error="Password." %}
+            </div>
+                
+          </div>
+          <button class="btn btn-primary mt-3 btn-block wow zoomIn" type="submit">Se connecter</button>
+      </form>
+      <p class="text-center mt-5">Pas encore enegistez ?<a href="{% url 'register' %}">Inscrivez-vous maintenant!</a></p> 
+
+  </div>
+</div>
+
+
+<!-- <div class="page-section">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">CONNECTION</h1>
+
+
+      <form method="post" class="main-form mb-10">
+        {% csrf_token %}
+        <div class="row mt-5 ">
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <label for="emailAddress">Username</label>
+           <input type="text" class="form-control" name="username" placeholder="Username..">
+          {% render_field form.username class="form-control" placeholder="Username..." required="required" data-error="Username." %}
+         </div>
+          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+            <label for="emailAddress">Password</label>
+             {% 
+              render_field form.password class="form-control" placeholder="Password..." required="required" data-error="Password." 
+              %} 
+           <input type="password" class="form-control" name="number" placeholder="Numéro..">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 btn-block wow zoomIn">Se connecter</button>
+      </form>
+      <p class="text-center mt-5">Pas encore membre ? <a href="{% url 'register' %}">Inscrivez-vous maintenant !</a></p>
+    </div>
+</div>   -->
+
+
+{% endblock content %}
+
+
