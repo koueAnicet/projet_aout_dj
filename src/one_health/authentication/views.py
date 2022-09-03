@@ -67,9 +67,45 @@ class loginPageView(View):
         
 
 def patient(request):
+    template_name = 'authentication/patient-register.html'
+    form = forms.FormRegister
+    if request.method=='GET':
+    
+        form =form()
+        message =''
+        return render(request, template_name, context={"form": form ,"message": message})
+    
+    if request.method=='POST':
+        form = form(request.POST)
+        if form.is_valid():
+            user = form.save()
+            #auto-login user, login  pour connecter l’utilisateur automatiquement
+            #login(request, user)
+            return redirect(settings.AUTH_USER_MODEL)
+        
+        return render(request, 'one_health/index.html', context= {'form': form})
+    
     return render(request, "authentication/patient-register.html")
 
 #@login_required
 def doctor(request):
-    return render(request, "authentication/doctor-register.html")
+    template_name = 'authentication/doctor-register.html'
+    form = forms.FormRegister
+    if request.method=='GET':
+    
+        form =form()
+        message =''
+        return render(request, template_name, context={"form": form ,"message": message})
+    
+    if request.method=='POST':
+        form = form(request.POST)
+        if form.is_valid():
+            user = form.save()
+            #auto-login user, login  pour connecter l’utilisateur automatiquement
+            #login(request, user)
+            return redirect(settings.AUTH_USER_MODEL)
+        
+        return render(request, 'one_health/doctors.html', context= {'form': form})
+    
+    #return render(request, "authentication/doctor-register.html")
 

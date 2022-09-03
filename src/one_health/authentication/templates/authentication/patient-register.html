@@ -4,6 +4,16 @@
 
 {% block content %}
 
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <button type="submit">ENREGISTER PATIENT</button>
+    </div>
+</form>
+
 <div class="mt-100 mb-100" style="height:auto;">
     <div class="page-section">
         <div class="container">

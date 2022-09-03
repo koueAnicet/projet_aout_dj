@@ -175,8 +175,8 @@
             <div class="header">
               <img src="{{ doctor.photo.url }}" alt="">
               <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+                {% comment %} <a href="#"><span class="mai-call"></span></a> {% endcomment %}
+                <a href="{{ doctor.social_media.link_link }}"><span class="{{doctor.social_media.icon_link}}"></span></a>
               </div>
             </div>
             <div class="body">
@@ -277,9 +277,9 @@
             </h5>
               <div class="site-info mt-1">
                 <div class="avatar mr-2">
-                  <div class="avatar-img">
+                  <!-- <div class="avatar-img">
                     <img src="{% static 'one_health/img/person/person_1.jpg' %}" alt="">
-                  </div>
+                  </div> -->
                   {% if article.author is not None %}
                   <span>{{article.author}}<br></span>
                   {% endif %}
